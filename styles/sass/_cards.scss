@@ -1,0 +1,72 @@
+// Card1
+.Card1 {
+  position: relative;
+  overflow: hidden;
+
+  .Content {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .Content .footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .Content .footer > *:nth-child(2) {
+    background-color: black;
+    padding: 0.25rem 0.5rem;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 11/9;
+    object-position: center;
+    object-fit: cover;
+    height: 300px;
+    transition: 1s ease;
+  }
+
+  &:hover > img {
+    transform: scale(1.105);
+  }
+
+  p {
+    font-size: 0.9rem;
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+    opacity: 0.75;
+  }
+
+  h2 {
+    padding: 0;
+    margin: 0;
+  }
+
+  .Heading {
+  }
+
+  .Heading h1 {
+  }
+
+  .Headingp {
+    line-height: 1.3rem;
+    width: min(100ch, 100% - 5rem);
+    margin-inline: auto;
+  }
+}
+
+.Card2 {
+  img {
+    height: 200px;
+    width: 100%;
+  }
+}

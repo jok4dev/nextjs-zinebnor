@@ -1,0 +1,176 @@
+.Layout {
+  header.MainHeader {
+    // theme
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+    .MobileNavBar {
+      padding: 1rem 2rem;
+      position: relative;
+      .NavBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .MobileMenu {
+        //theme
+        background-color: black;
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+        opacity: 0.95;
+        .wrapper {
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+          header {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid #ffffff71;
+            margin-bottom: 1rem;
+          }
+          .menu-list-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            a {
+              // theme
+              color: white;
+            }
+          }
+          footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid #ffffff71;
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+
+    .DesktopNavBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      // theme
+      color: #333333;
+
+      .left,
+      .right {
+        transform: translateY(15px);
+      }
+
+      a {
+        color: inherit;
+        font-weight: 500;
+        &.Button {
+          background-color: transparent;
+          font-size: 0.78rem;
+        }
+      }
+
+      .center-part {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        gap: 0.75rem;
+      }
+    }
+  }
+
+  main {
+    margin-top: 6rem;
+  }
+}
+
+.container {
+  --container-width: 120ch;
+  --container-gutter: 2rem;
+  --container-padding: 1rem;
+
+  width: min(var(--container-width), 100% - var(--container-gutter));
+  margin-inline: auto;
+}
+
+.layout-grid {
+  --min: 20ch;
+  --gap: 1.5rem;
+
+  display: grid;
+  grid-gap: var(--gap);
+  /* min() with 100% prevents overflow
+  in extra narrow spaces */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+
+  &--scrollsnap-cards {
+    @media (max-width: 60ch) and (any-hover: none) and (any-pointer: coarse) {
+      --gap: 1rem;
+
+      grid-auto-flow: column;
+      grid-template-columns: unset;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1.25rem;
+
+      > .card {
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        width: min(25ch, 70vw);
+      }
+    }
+  }
+}
+
+.flex-col-center {
+  --gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-block: 5%;
+  gap: var(--gap);
+  & > * {
+    text-align: center;
+  }
+}
+
+.flex-row {
+  --gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-block: 3%;
+  gap: var(--gap);
+  & > * {
+    flex: 1 1 250px;
+  }
+}
+
+.py1 {
+  padding-block: 3%;
+}
+
+.my27 {
+  margin-block: 7% 2%;
+}
+
+.my5 {
+  margin-block: 5%;
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
